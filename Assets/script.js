@@ -14,6 +14,7 @@ function getISSPosition(){
         //get data from response
         var issAltitude = positionResponse.altitude;
         var issVelocity = positionResponse.velocity;
+        var issVisibility = positionResponse.visibility;
         var issLatitude = positionResponse.latitude;
         var issLongitude = positionResponse.longitude;
         // output data
@@ -27,6 +28,13 @@ function getISSPosition(){
 
         var issvelocityDisplay = $("#veloISS");
         issvelocityDisplay.text(`${issVelocity.toFixed()} km/h.`);
+
+        var issVisibilityDisplay = $("#dayNightISS");
+        if (issVisibility == "daylight"){
+            issVisibilityDisplay.text(`The ISS is currently experiencing daylight.`);
+        } else if (issVisibility == "eclipsed") {
+            issVisibilityDisplay.text(`The ISS is currently experiencing night-time.`);
+        }
 
         showMap(issLatitude,issLongitude);
     });
