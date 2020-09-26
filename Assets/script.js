@@ -13,6 +13,7 @@ function getISSPosition(){
         console.log(positionResponse); // check content of response
         //get data from response
         var issAltitude = positionResponse.altitude;
+        var issVelocity = positionResponse.velocity;
         var issLatitude = positionResponse.latitude;
         var issLongitude = positionResponse.longitude;
         // output data
@@ -23,6 +24,9 @@ function getISSPosition(){
         var issCoordsDisplay = $("#coordISS");
         issCoordsDisplay.text(`${issLatitude.toFixed(4)} degrees ${latitudeSide(issLatitude)} and ${issLongitude.toFixed(4)} degrees ${longitudeSide(issLongitude)}.`);
         //$(document.body).append(issCoordsDisplay);
+
+        var issvelocityDisplay = $("#veloISS");
+        issvelocityDisplay.text(`${issVelocity.toFixed()} km/h.`);
 
         showMap(issLatitude,issLongitude);
     });
