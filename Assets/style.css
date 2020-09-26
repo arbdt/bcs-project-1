@@ -1,11 +1,11 @@
 /* This file is for custom CSS */
 
-.hero-image {
+#hero-image {
     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Assets/Images/ISS-Hero-Img.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("/Assets/Images/iss-img.jpg");
   
     /* Set a specific height */
-    height: 50%;
+    height: 60%;
   
     /* Position and center the image to scale nicely on all screens */
     background-position: center;
@@ -22,4 +22,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+  }
+
+  /*setting padding for the first <p> below image*/
+  .accordion  {
+    padding-top: 35px;
   }

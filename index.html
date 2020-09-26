@@ -6,21 +6,33 @@
     <title>ISS Tracker</title>
     <!-- Semantic UI link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
-    <link href="./Assets/style.css"> <!-- link to custom styles -->
 
+     <!-- link to custom styles -->
+     <link rel="stylesheet" href="./Assets/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- jQuery import -->
 </head>
 <body>
-    <!--
-    <h1></h1>
-    <p></p>
-    -->
+    <!--  Hero Image container-->
     <div id="hero-image" class="ui center aligned  container">
         <div class="hero-text">
           <h1>Welcome to ISS Tracking Service</h1>
           <p>The idea is that this will show the location of the ISS via an API call.</p>
-          <button class="massive ui teal button">Show Me</button>
+          <button class="huge ui teal button" id="getISS">Show Me</button>
         </div>
+      </div>
+
+      <!-- Div continer to display all ISS info -->
+      <div class="ui left aligned container" id="infoDiv">
+        <div class="ui accordion">
+          <div class="title">
+            <i class="dropdown icon"></i>
+            ISS Info
+          </div>
+          <div class="content">
+            <p class="transition hidden"><strong> The Altitude of the ISS is: </strong><span  id="altISS"> Please click the "Show Me" button</span></p>
+            <p class="transition hidden"><strong> The coordinates of the ISS are: </strong><span  id="coordISS">Please click the "Show Me" button</span></p>
+          </div>
+        </div>  
       </div>
     <!-- Semantic UI -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>

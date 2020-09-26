@@ -16,14 +16,17 @@ function getISSPosition(){
         var issLatitude = positionResponse.latitude;
         var issLongitude = positionResponse.longitude;
         // output data
-        var issAltDisplay = $("<p>");
-        issAltDisplay.text(`The altitude of the ISS is: ${Math.floor(issAltitude)} kilometres.`);
-        $(document.body).append(issAltDisplay);
+        var issAltDisplay = $("#altISS");
+        issAltDisplay.text(`${Math.floor(issAltitude)} kilometres.`);
+        //$(document.body).append(issAltDisplay);
 
-        var issCoordsDisplay = $("<p>");
-        issCoordsDisplay.text(`The coordinates of the ISS are: ${issLongitude} degrees ${longitudeSide(issLongitude)} and ${issLatitude} degrees ${latitudeSide(issLatitude)}.`);
-        $(document.body).append(issCoordsDisplay);
+        var issCoordsDisplay = $("#coordISS");
+        issCoordsDisplay.text(`${issLongitude} degrees ${longitudeSide(issLongitude)} and ${issLatitude} degrees ${latitudeSide(issLatitude)}.`);
+        //$(document.body).append(issCoordsDisplay);
+
     });
+
+    $('.ui.accordion').accordion('open', 0);
 }
 
 // function to determine if a given longitude represents East or West
@@ -46,5 +49,9 @@ function latitudeSide(latitude){
     }
 }
 
+$('.ui.accordion')
+.accordion();
+//function to display coordinates on btn click
+$("#getISS").click(getISSPosition);
 //testing
-getISSPosition();
+//getISSPosition();
