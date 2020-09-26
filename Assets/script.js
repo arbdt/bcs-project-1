@@ -21,7 +21,7 @@ function getISSPosition(){
         //$(document.body).append(issAltDisplay);
 
         var issCoordsDisplay = $("#coordISS");
-        issCoordsDisplay.text(`${issLongitude} degrees ${longitudeSide(issLongitude)} and ${issLatitude} degrees ${latitudeSide(issLatitude)}.`);
+        issCoordsDisplay.text(`${issLatitude.toFixed(4)} degrees ${latitudeSide(issLatitude)} and ${issLongitude.toFixed(4)} degrees ${longitudeSide(issLongitude)}.`);
         //$(document.body).append(issCoordsDisplay);
 
     });
