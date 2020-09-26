@@ -28,3 +28,8 @@
   .accordion  {
     padding-top: 35px;
   }
+
+  /* Top Margin for map */
+  #mapDiv {
+    margin-top: 35px;
+  }

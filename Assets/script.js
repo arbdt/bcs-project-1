@@ -24,8 +24,10 @@ function getISSPosition(){
         issCoordsDisplay.text(`${issLongitude} degrees ${longitudeSide(issLongitude)} and ${issLatitude} degrees ${latitudeSide(issLatitude)}.`);
         //$(document.body).append(issCoordsDisplay);
 
+        showMap(issLatitude,issLongitude);
     });
 
+    // animate the ISS display info
     $('.ui.accordion').accordion('open', 0);
 }
 
@@ -48,6 +50,16 @@ function latitudeSide(latitude){
         return "South";
     }
 }
+// function to set the src attribute for the Map iframe
+function showMap (lat,long) {
+
+    let apiKey = "AIzaSyDx6Uqqvxa7k-TMC9OTPgIM5a3Cyw5Tv_w";
+
+    let mapURL = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${lat},${long}&zoom=3`;
+
+    $("#map").attr("src", mapURL)
+    
+}
 
 $('.ui.accordion')
 .accordion();
@@ -55,3 +67,9 @@ $('.ui.accordion')
 $("#getISS").click(getISSPosition);
 //testing
 //getISSPosition();
+
+
+
+/*https://www.google.com/maps/embed/v1/place?key=API_KEY
+&q=Space+Needle,Seattle+WA
+*/
