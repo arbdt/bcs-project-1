@@ -71,6 +71,7 @@ function showMap (lat,long) {
 
     $("#map").attr("src", mapURL)
 
+    // animate map & show
     $("#mapDiv").show("slow");
     
 }
