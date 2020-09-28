@@ -70,9 +70,12 @@ function showMap (lat,long) {
     let mapURL = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${lat},${long}&zoom=3`;
 
     $("#map").attr("src", mapURL)
+
+    $("#mapDiv").show("slow");
     
 }
 
+// setting the ISS Info text animate as per Semantic UI
 $('.ui.accordion')
 .accordion();
 //function to display coordinates on btn click

@@ -13,6 +13,7 @@
     background-size: cover;
     position: relative;
   }
+
   
   /* Place text in the middle of the image */
   .hero-text {
@@ -29,7 +30,25 @@
     padding-top: 35px;
   }
 
+  #infoDiv{
+    margin-bottom: 65px;
+  }
+
+  #iss-info {
+    font-weight: 500;
+    font-size: 2em;
+  }
   /* Top Margin for map */
   #mapDiv {
     margin-top: 35px;
+    display: none;
+  }
+
+  #map {
+    width: 100%;
+  }
+
+  footer div p {
+    margin: 0 auto;
+    display:block ;
   }
