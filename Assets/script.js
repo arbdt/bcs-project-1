@@ -67,7 +67,7 @@ function showMap (lat,long) {
 
     let apiKey = "AIzaSyDx6Uqqvxa7k-TMC9OTPgIM5a3Cyw5Tv_w";
 
-    let mapURL = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${lat},${long}&zoom=3`;
+    let mapURL = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${lat},${long}&zoom=5&maptype=satellite`;
 
     $("#map").attr("src", mapURL)
 
