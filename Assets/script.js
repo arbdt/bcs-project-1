@@ -20,11 +20,9 @@ function getISSPosition(){
         // output data
         var issAltDisplay = $("#altISS");
         issAltDisplay.text(`${Math.floor(issAltitude)} kilometres.`);
-        //$(document.body).append(issAltDisplay);
 
         var issCoordsDisplay = $("#coordISS");
         issCoordsDisplay.text(`${issLatitude.toFixed(4)} degrees ${latitudeSide(issLatitude)} and ${issLongitude.toFixed(4)} degrees ${longitudeSide(issLongitude)}.`);
-        //$(document.body).append(issCoordsDisplay);
 
         var issvelocityDisplay = $("#veloISS");
         issvelocityDisplay.text(`${issVelocity.toFixed()} km/h.`);
@@ -40,8 +38,9 @@ function getISSPosition(){
             $("#time-icon").addClass( "moon icon" );
             
         }
+        getISSCrew(); // call crew function
 
-        showMap(issLatitude,issLongitude);
+        showMap(issLatitude,issLongitude); // call map function
     });
 
     // animate the ISS display info
@@ -67,6 +66,30 @@ function latitudeSide(latitude){
         return "South";
     }
 }
+
+// function to get crew number and names from open-notify.org
+function getISSCrew(){
+    $.getJSON('http://api.open-notify.org/astros.json', function(data) {
+        console.log(data);
+        let issCrewNum = 0;
+        let issCrewNameList = [];
+        let issCrewNameString = "";
+        for (var p = 0; p < data.number; p++){
+            if (data.people[p].craft = "ISS"){
+                issCrewNameList.push(data.people[p].name);
+                issCrewNum += 1;
+            }
+        }
+        //display data on page
+        $("#crewNumISS").text(issCrewNum);
+        for (var c = 0; c < issCrewNum-1; c++){
+            issCrewNameString += `${issCrewNameList[c]}, `; // add comma after all but last name in set
+        }
+        issCrewNameString += `${issCrewNameList[issCrewNum-1]}`; //add last name is set
+        $("#crewNamesISS").text(issCrewNameString);
+    });
+}
+
 // function to set the src attribute for the Map iframe
 function showMap (lat,long) {
 
@@ -86,10 +109,6 @@ $('.ui.accordion')
 .accordion();
 //function to display coordinates on btn click
 $("#getISS").click(getISSPosition);
-//testing
-//getISSPosition();
-
-
 
 /*https://www.google.com/maps/embed/v1/place?key=API_KEY
 &q=Space+Needle,Seattle+WA
