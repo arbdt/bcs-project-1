@@ -69,7 +69,7 @@ function latitudeSide(latitude){
 
 // function to get crew number and names from open-notify.org
 function getISSCrew(){
-    $.getJSON('http://api.open-notify.org/astros.json', function(data) {
+    $.getJSON('http://api.open-notify.org/astros.json?callback=?', function(data) {
         console.log(data);
         let issCrewNum = 0;
         let issCrewNameList = [];
