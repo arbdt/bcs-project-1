@@ -68,6 +68,7 @@ function latitudeSide(latitude){
 }
 
 // function to get crew number and names from open-notify.org
+// unfortunately, this api server is not configured for HTTPS and modern browsers will refuse to display it by default
 function getISSCrew(){
     $.getJSON('http://api.open-notify.org/astros.json?callback=?', function(data) {
         console.log(data);
