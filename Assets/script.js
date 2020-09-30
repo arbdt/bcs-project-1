@@ -110,7 +110,3 @@ $('.ui.accordion')
 .accordion();
 //function to display coordinates on btn click
 $("#getISS").click(getISSPosition);
-
-/*https://www.google.com/maps/embed/v1/place?key=API_KEY
-&q=Space+Needle,Seattle+WA
-*/
