@@ -12,21 +12,31 @@ function getISSPosition(){
     }).then(function(positionResponse) {
         console.log(positionResponse); // check content of response
         //get data from response
+        //store to local storage
         var issAltitude = positionResponse.altitude;
+        localStorage.setItem("Altitude", issAltitude);
         var issVelocity = positionResponse.velocity;
+        localStorage.setItem("Velocity", issVelocity);
         var issVisibility = positionResponse.visibility;
+        localStorage.setItem("Visibility", issVisibility);
         var issLatitude = positionResponse.latitude;
+        localStorage.setItem("Lat", issLatitude);
         var issLongitude = positionResponse.longitude;
+        localStorage.setItem("Long", issLongitude);
         // output data
         var issAltDisplay = $("#altISS");
         issAltDisplay.text(`${Math.floor(issAltitude)} kilometres.`);
 
+        //display Latitude & Longitude
         var issCoordsDisplay = $("#coordISS");
         issCoordsDisplay.text(`${issLatitude.toFixed(4)} degrees ${latitudeSide(issLatitude)} and ${issLongitude.toFixed(4)} degrees ${longitudeSide(issLongitude)}.`);
 
+        //display velocity
         var issvelocityDisplay = $("#veloISS");
         issvelocityDisplay.text(`${issVelocity.toFixed()} km/h.`);
-
+        
+        //display daytime / nighttime
+        //siwtch between night mode and day mode
         var issVisibilityDisplay = $("#dayNightISS");
         if (issVisibility == "daylight"){
             issVisibilityDisplay.text(`The ISS is currently experiencing daylight.`);
@@ -38,6 +48,7 @@ function getISSPosition(){
             $("#time-icon").removeClass( "sun icon" );
             $("#time-icon").addClass( "moon icon" );
             $(document.body).addClass("dark-mode");
+            $(document.body).removeClass("day-mode");
             
         }
         getISSCrew(); // call crew function
