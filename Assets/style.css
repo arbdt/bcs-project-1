@@ -62,4 +62,10 @@
     margin: 0 auto;
     display:block ;
     padding: 10px;
+    color: black;
+  }
+
+  .dark-mode{
+      background-color: #191919;
+      color: aliceblue;
   }

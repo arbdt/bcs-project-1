@@ -32,10 +32,12 @@ function getISSPosition(){
             issVisibilityDisplay.text(`The ISS is currently experiencing daylight.`);
             $("#time-icon").removeClass( "moon icon" );
             $("#time-icon").addClass( "sun icon" );
+            $(document.body).removeClass("dark-mode");
         } else if (issVisibility == "eclipsed") {
             issVisibilityDisplay.text(`The ISS is currently experiencing night-time.`);
             $("#time-icon").removeClass( "sun icon" );
             $("#time-icon").addClass( "moon icon" );
+            $(document.body).addClass("dark-mode");
             
         }
         getISSCrew(); // call crew function
