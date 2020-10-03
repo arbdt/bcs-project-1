@@ -43,12 +43,14 @@ function getISSPosition(){
             $("#time-icon").removeClass( "moon icon" );
             $("#time-icon").addClass( "sun icon" );
             $(document.body).removeClass("dark-mode");
+            $("#accordion-div").removeClass("inverted");
         } else if (issVisibility == "eclipsed") {
             issVisibilityDisplay.text(`The ISS is currently experiencing night-time.`);
             $("#time-icon").removeClass( "sun icon" );
             $("#time-icon").addClass( "moon icon" );
             $(document.body).addClass("dark-mode");
             $(document.body).removeClass("day-mode");
+            $("#accordion-div").addClass("inverted");
             
         }
         getISSCrew(); // call crew function
