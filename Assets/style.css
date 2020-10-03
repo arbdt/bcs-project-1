@@ -65,6 +65,8 @@
     color: black;
   }
 
+  /* day and night mode classes */
+  
   .dark-mode{
       background-color: #191919;
       color: aliceblue;
